@@ -9,8 +9,10 @@ height: 120px;
 display: flex;
 flex-direction: column;
 gap: 30px;
-padding: 30px 0 ;
+padding: 70px 0 ;
 align-items: center;
+justify-content: center;
+
 
 
 `

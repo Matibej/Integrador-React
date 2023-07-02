@@ -12,7 +12,7 @@ const Header = () => {
 
 
 const [HiddenCart, setHiddenCart] = useState(true)
-
+const [HiddenMenu, setHiddenMenu] = useState(false)
 
 
   return (
@@ -22,8 +22,8 @@ const [HiddenCart, setHiddenCart] = useState(true)
         alt="logo" />
         </Link>
         <NavbarStyled>
-            <NavbarMenu/>
-            <MenuIcon/>
+            <NavbarMenu HiddenMenu={HiddenMenu} />
+            <MenuIcon onClick={()=>setHiddenMenu(!HiddenMenu)}/>
             <Cart HiddenCart = {HiddenCart} setHiddenCart={setHiddenCart} />
         </NavbarStyled>
         {!HiddenCart && <ModalCart/>} 

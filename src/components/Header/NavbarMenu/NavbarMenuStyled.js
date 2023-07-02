@@ -7,13 +7,26 @@ export const MenuStyled = styled.div`
 display: flex;
 gap: 20px;
 
-:hover{
+a {transition: 0.5s;}
+
+a:hover{
     color: var(--tertiary);
     transition: 0.5s;
 }
 
-@media (max-width: 900px) {
+button{
+    color: var(--primary);
+    background: var(--background-alt);
+    border: none;
+    font-weight: 600;
+    :hover{
+        color: var(--tertiary);
+        transition: 0.5s;
+    }
+}
 
+@media (max-width: 900px) {
+display: ${({HiddenMenu})=> (!HiddenMenu ? 'none' : 'flex' )};
 position: absolute;
 top: 100px;
 left: 5%;

@@ -10,7 +10,7 @@ flex-direction: column;
 align-items: center;
 padding: 100px 0 100px 0;
 gap: 40px;
-
+margin-bottom: 20vh;
 
 
 `

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 const ShowMoreContainer = styled.div`
@@ -21,6 +22,13 @@ button{
     padding: 5px;
 }
 
+button:disabled{
+  cursor: not-allowed;
+  :hover{ background: var(--secondary);
+    color: black;
+  }
+}
+
 button:hover{
     background: var(--background);
     color: var(--secondary);
@@ -29,11 +37,15 @@ button:hover{
 `
 
 
-const ShowMore = () => {
+const ShowMore = ({Limit, setLimit}) => {
+
+  const total = useSelector(state => state.products.total)
+
+
   return (
     <ShowMoreContainer>
-        <button>VER MÁS</button>
-        <button>VER MENOS</button>
+        <button disabled={Limit >= total}  onClick={() => setLimit(prevLimit => prevLimit + 6)}>VER MÁS</button>
+        <button disabled={Limit == 6} onClick={() => setLimit(prevLimit => prevLimit - 6)}>VER MENOS</button>
     </ShowMoreContainer>
   )
 }

@@ -26,8 +26,8 @@ cursor: pointer;
 width: 100%;
 font-size: 25px;
 font-weight: 600;
-color: var(--primary);
-background:var(--background-alt);
+color: ${({selected}) => selected ? 'var(--background)' : 'var(--primary)'};
+background-color: ${({selected}) => selected ? 'var(--secondary)' : 'var(--background-alt)'};
 border: none;
 display: flex;
 padding: 0 10px;
@@ -37,10 +37,6 @@ padding: 0 10px;
     transition: 1s;
 }
 
-&:focus{
-    color: var(--background);
-    background: var(--secondary);
-}
 
 `
 

@@ -1,19 +1,21 @@
 import styled from "styled-components";
+import { Form as FormikForm } from "formik";
 
 export const LoginStyled = styled.div`
-height: 90vh;
+height: 100vh;
 display: flex;
 width: 100%;
 justify-content: center;
 align-items: center;
-padding: 70px 0;
+padding: 90px 0 20px 0;
 
 `
 
 
 
 export const FormContainer = styled.div`
-margin-top: 100px;
+
+margin: 120px 0;
 min-height: 350px;
 max-height: 650px;
 padding: 20px 0;
@@ -25,16 +27,24 @@ display:flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-gap: 30px;
+gap: 20px;
+
+a{
+    color: var(--tertiary);
+}
+
+a:hover{
+    text-decoration: underline;
+}
 
 `
 
-export const Form = styled.form`
+export const Form = styled(FormikForm)`
 
 width: 100%;
 display: flex;
 flex-direction: column;
-gap: 50px;
+gap: 30px;
 align-items: center;
 
 button{
@@ -58,19 +68,19 @@ flex-direction: column;
 gap: 5px;
 
 input{
-    height: 45px;
+    height: 35px;
     padding: 2px 10px;
-    border: none;
+    border: ${({ IsError }) => IsError ? '1px solid red ' : 'none'};
     border-radius: 5px;
     background: var(--background-alt);
-    font-size: 20px;
+    font-size: 15px;
     color: white;
     outline: none;
 }
 
 small{
     color: red;
-    font-size: 15px;
+    font-size: 12px;
     padding: 0 10px;
 }
 

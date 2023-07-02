@@ -1,18 +1,27 @@
 import React from 'react'
 import { ProductCardContainer, ProductCardIng, ProductInfo, ProductTemplate } from './ModalCartStyled'
 import {BsFillTrash3Fill} from 'react-icons/bs'
+import { FormatPrice } from '../../utils/FormatPrice'
+import { useDispatch } from 'react-redux'
+import { removeItem } from '../../../redux/cart/cartSlice'
+import { RandomProduct, NewPrice } from '../../data/products'
 
-const ProductCard = () => {
+
+
+const ProductCard = ({id, title, img, price}) => {
+
+  const dispatch = useDispatch()
+
   return (
     <ProductCardContainer>
         <ProductTemplate>
             <ProductInfo>
-            <ProductCardIng style={{background: "url(https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg?t=1675178392) no-repeat center/cover "}}/>
-            The Witcher 3
+            <ProductCardIng style={{backgroundImage:`url(${img})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}/>
+            {title}
             </ProductInfo>
-            $000000
+            { RandomProduct.id == id  ? FormatPrice(NewPrice) : FormatPrice(price) }
         </ProductTemplate>
-        <button><BsFillTrash3Fill/></button>
+        <button onClick={()=>dispatch(removeItem({id}))}><BsFillTrash3Fill/></button>
     </ProductCardContainer>
   )
 }

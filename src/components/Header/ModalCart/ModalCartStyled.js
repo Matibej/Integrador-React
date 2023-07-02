@@ -8,7 +8,7 @@ right: 20px;
 width: 500px;
 display: ${({asd}) => asd && 'flex'};
 flex-direction: column;
-z-index: 99;
+z-index: 5;
 border-radius: 0 0 5px 5px;
 
 `
@@ -49,11 +49,26 @@ color: var(--secondary);
 `
 
 export const CartList = styled.ul`
-max-height: 600px;
+max-height: 400px;
 display: flex;
 flex-direction: column;
 background: var(--background);
 padding: 5px;
+overflow-y: scroll;
+::-webkit-scrollbar {
+  width: 10px;}
+::-webkit-scrollbar-thumb {
+  background: var(--background-alt); 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+p{
+    text-align: center;
+
+}
+
 `
 
 export const ProductCardContainer = styled.li`

@@ -27,7 +27,6 @@ justify-content: center;
 align-items: center;
 gap: 20px;
 
-
 `
 
 
@@ -46,7 +45,7 @@ align-items: center;
 export const MenuIcon = styled(AiOutlineMenu) `
  font-size: 25px;
  display: none;
- 
+ cursor: pointer;
 
 @media (max-width: 900px) {
 

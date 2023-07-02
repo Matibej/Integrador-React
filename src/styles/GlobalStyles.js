@@ -27,6 +27,7 @@ body{
     font-family: 'Poppins', sans-serif;
     background: url(${img});
     background-size: cover;
+    background-position: center;
     color: var(--primary);
     
 }

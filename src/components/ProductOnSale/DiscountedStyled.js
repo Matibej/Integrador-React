@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const GameOnSaleContainer = styled.section `
+export const DiscountedGameContainer = styled.section `
 max-width: 1400px;
 box-sizing: border-box;
 width: 85%;
@@ -12,6 +12,7 @@ border-radius: 10px;
 align-items: center;
 justify-content: space-between;
 flex-wrap: wrap;
+box-shadow: 0 0 5px black;
 
 
 
@@ -34,7 +35,7 @@ img{
 
 `
 
-export const GameOnSaleImg = styled.div`
+export const DiscountedGameImg = styled.div`
     height: 100%;
     width: 50%;
     border-radius: 10px 0 0 10px;
@@ -65,7 +66,7 @@ height: 140px;
 `
 
 
-export const GameOnSaleInfo = styled.div`
+export const DiscountedGameInfo = styled.div`
 display:flex;
 flex-direction: column;
 height: 100%;
@@ -89,7 +90,7 @@ padding: 10px 0 20px 0
 
 `
 
-export const GameOnSaleTitle = styled.div`
+export const DiscountedGameTitle = styled.div`
 padding: 5px 30px;
 width: 100%;
 display: flex;
@@ -119,13 +120,17 @@ h2{
 `
 
 
-export const GameOnSalePriceContainer = styled.div`
+export const DiscountedGamePriceContainer = styled.div`
 display: flex;
 width: 100%;
 justify-content: space-between;
 font-size: 35px;
 align-items: center;
 padding: 0 20px;
+
+button{
+    height: 50px;
+}
 
 
 @media (max-width: 500px) {
@@ -134,18 +139,20 @@ padding: 0 5px;
 
 button{
 height: 40px;
-width: 70px;
+width: 75px;
 font-size: 15px;
 }}
 
 
 `
 
-export const GameOnSalePrice = styled.div`
+export const SaleContainer = styled.div`
 
  display: flex;
- gap: 10px;
  align-items: center;
+ width: 100%;
+ justify-content: space-between;
+ padding: 0 10px; 
 
 small{
     font-size: 20px;
@@ -155,16 +162,6 @@ small{
 
 span{
     font-size: 30px;
-    color: white;
-}
-
-span:last-child{
-    color: var(--background);
-    font-size: 25px;
-    height: 50%;
-    background-color: var(--tertiary);
-    padding: 5px;
-    font-weight: 600;
 }
 
 @media (max-width: 650px) {
@@ -177,16 +174,26 @@ span{
 small{
     font-size: 15px;
 }
-
-span:last-child{
-    font-size: 17px;
-    height: 35px;
-
-}
     
 }
 
+`
+export const Sale = styled.span`
 
+color: var(--background);
+font-size: 25px;
+height: 40%;
+background-color: var(--tertiary);
+padding: 5px;
+font-weight: 600;
+
+`
+
+export const PriceContainer = styled.div`
+
+display: flex;
+flex-direction: column;
+color: white;
 
 
 `

@@ -1,19 +1,29 @@
 import React from 'react'
 import { CategoriesContainerStyled, CategoriesStyled } from './CategoriesStyled'
+import {useDispatch, useSelector} from 'react-redux'
+import {selectCategory} from '../../../redux/categories/CategoriesSlice'
 
 const Categories = () => {
+
+  const categories = useSelector(state => state.categories.categories)
+  const selectedCategory = useSelector(state => state.categories.selectedCategory)
+
+  const dispatch = useDispatch();
+
   return (
     <CategoriesContainerStyled>
-        <CategoriesStyled>Horror</CategoriesStyled>
-        <CategoriesStyled>Rol</CategoriesStyled>
-        <CategoriesStyled>Aventura</CategoriesStyled>
-        <CategoriesStyled>Deportes</CategoriesStyled>
-        <CategoriesStyled>Simulador</CategoriesStyled>
-        <CategoriesStyled>Estrategia</CategoriesStyled>
-        <CategoriesStyled>Mundo abierto</CategoriesStyled>
-        <CategoriesStyled>Lucha</CategoriesStyled>
-        <CategoriesStyled>Roguelike</CategoriesStyled>
-        <CategoriesStyled>Carreras</CategoriesStyled>
+        {
+          categories.map((category, index)=>{
+            return <CategoriesStyled 
+            onClick={()=>dispatch(selectCategory(category))} 
+            key={index} 
+            selected={category===selectedCategory}
+            >
+              
+                  {category}
+              </CategoriesStyled>
+          })
+        }
     </CategoriesContainerStyled>
   )
 }
