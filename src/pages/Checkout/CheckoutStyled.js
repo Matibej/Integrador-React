@@ -23,6 +23,14 @@ padding: 30px 20px;;
 display: flex;
 flex-direction: column;
 overflow-y: scroll;
+::-webkit-scrollbar {
+  width: 10px;}
+::-webkit-scrollbar-thumb {
+  background: var(--background-alt); 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 h3{
     font-size: 28px;
@@ -123,6 +131,28 @@ display: flex;
 flex-direction: column;
 gap: 20px;
 justify-content: space-between;
+align-items:center;
+
+a{
+    width: 200px;
+    height: 45px;
+    border-radius: 10px;
+    background: var(--secondary);
+    color: var(--background);
+    font-size: 18px;
+    text-align: center;
+    padding: 8px;
+    transition: 0.5s;
+
+}
+
+a:hover{
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+    background-color: var(--background);
+    transition: 0.5s;
+}
+
 `
 
 export const TotalPrice = styled.div`

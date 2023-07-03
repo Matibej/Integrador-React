@@ -1,15 +1,17 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { NewPrice, RandomProduct } from '../data/products'
-import { Button } from '../UI/Button'
-import { FormatPrice } from '../utils/FormatPrice'
+import { Link } from 'react-router-dom'
+import { NewPrice, RandomProduct } from '../../components/data/products'
+import { FormatPrice } from '../../components/utils/FormatPrice'
 import CheckoutProduct from './CheckoutProduct'
-import { CheckoutWrapper, Items, MyPriceContainer, MyProducts, MyProductsContainer, Select, TotalPrice } from './CheckoutStyled'
+import { CheckoutWrapper, MyPriceContainer, MyProducts, MyProductsContainer, Select, TotalPrice } from './CheckoutStyled'
 
 const Checkout = () => {
-    const cart = useSelector(state => state.cart.cart);
+  
 
-    const isRandomInCart = cart.find( (product) => product.id ==  RandomProduct.id  )
+  const cart = useSelector(state => state.cart.cart);
+
+  const isRandomInCart = cart.find( (product) => product.id ==  RandomProduct.id  )
 
   
   let total = cart.reduce((acc, curr)=>{
@@ -50,7 +52,10 @@ const Checkout = () => {
                     <option>Tarjeta de débito</option>
                 </Select>
             </TotalPrice>
-            <Button style={{width:'100%', height: '50px'}} >Confirmar compra</Button>
+            {
+              cart.length > 0  && <Link to='/felicitaciones'>Confirmar compra</Link>
+           }
+            
         </MyPriceContainer>
     </CheckoutWrapper>
   )

@@ -4,7 +4,9 @@ import Home from '../pages/Home/Home'
 import Login from '../pages/UserAccount/Login'
 import Register from '../pages/UserAccount/Register'
 import Error from '../pages/Error/Error'
-import Checkout from '../components/Checkout/Checkout'
+import Checkout from '../pages/Checkout/Checkout'
+import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
+import Felicitaciones from '../pages/Felicitaciones/Felicitaciones'
 
 const Routes = () => {
   return (
@@ -12,7 +14,17 @@ const Routes = () => {
           <Route path='/' element={<Home/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/checkout' element={<Checkout/>} />
+          <Route path='/felicitaciones' element={<Felicitaciones />} />
+
+          <Route
+            path='/checkout'
+            element={
+            <ProtectedRoute redirectTo='/register'>
+              <Checkout />
+            </ProtectedRoute>
+            }
+          />
+
           <Route path='*' element={<Error />}/>
         </ReactDOMRoutes>
   )

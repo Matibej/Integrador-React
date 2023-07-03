@@ -24,7 +24,10 @@ gap: 10px;
 align-items: center;
 background: var(--gradient-background );
 
-button{
+
+ a {
+    padding: 5px;
+    border-radius: 5px;
     width: 70px;
     font-size: 13px;
     height: 30px;
@@ -39,6 +42,14 @@ display: flex;
 width: 100%;
 align-items: center;
 justify-content: space-between;
+button{
+  font-size: 15px;
+  width: 20px;
+  background: var(--gradient-background );
+  border: none;
+  padding: 1px;
+  color: red;
+}
 
 `
 
