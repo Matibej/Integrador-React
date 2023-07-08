@@ -1,7 +1,7 @@
 import React from 'react'
-import { InputContainer, FormContainer, Form, LoginStyled } from './UserAccountStyled'
+import { InputContainer, FormContainer, Form, LoginStyled, InputStyled } from './UserAccountStyled'
 import { Link, useNavigate } from 'react-router-dom'
-import {ErrorMessage, Field, Formik} from 'formik'
+import {ErrorMessage, Field, Formik, getIn} from 'formik'
 import { registerInitialValues } from '../../components/Formik/initialValues'
 import { registerValidation } from '../../components/Formik/validationSchema'
 import { useDispatch, useSelector } from 'react-redux'
@@ -29,18 +29,18 @@ const Login = () => {
             }
             }
           >
-            {({errors})=>(
+            {({errors, touched})=>(
               <Form > 
                 <InputContainer>
-                <Field name='name' type="text" placeholder='Ingresa un nombre de usuario' IsError={errors.name} />
+                <Field as={InputStyled} name='name' type="text" placeholder='Ingresa un nombre de usuario' IsError={errors.name && touched.name}/>
                 <ErrorMessage name='name' component={'small'}/>
                 </InputContainer>
                 <InputContainer>
-                <Field name='email' type="mail" placeholder='Ingresa un email'  />
+                <Field as={InputStyled} name='email' type="mail" placeholder='Ingresa un email'  IsError={errors.email && touched.email}/>
                 <ErrorMessage name='email' component={'small'}/>
                 </InputContainer>
                 <InputContainer>
-                <Field name='password' type="password" placeholder='Ingresa una contraseña' />
+                <Field as={InputStyled} name='password' type="password" placeholder='Ingresa una contraseña'  IsError={errors.password && touched.password}/>
                 <ErrorMessage name='password' component={'small'}/>
                 </InputContainer>
                 <Link to='/login'>

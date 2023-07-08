@@ -10,7 +10,7 @@ flex-direction: column;
 padding: 20px 30px;
 gap: 20px;
 justify-content: center;
-
+box-shadow: 0 0 3px black;
 
 @media (max-width: 400px) {
     width: 300px;

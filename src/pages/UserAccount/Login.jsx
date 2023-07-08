@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { loginInitialValues } from '../../components/Formik/initialValues'
 import { loginValidation } from '../../components/Formik/validationSchema'
 import { logUser } from '../../redux/user/userSlice'
-import { InputContainer, FormContainer, Form, LoginStyled } from './UserAccountStyled'
+import { InputContainer, FormContainer, Form, LoginStyled, InputStyled } from './UserAccountStyled'
 
 const Login = () => {
 
@@ -28,20 +28,24 @@ const Login = () => {
             }
             }
             >
-            <Form>
+               {({errors, touched})=>(    
+
+                <Form>
+                  <InputContainer>
+                    <Field as={InputStyled} name='email' type="text" placeholder='Ingresa tu email' IsError={errors.email && touched.email}/>
+                    <ErrorMessage name='email' component={'small'}/>
+                  </InputContainer>
                 <InputContainer>
-                <Field name='email' type="text" placeholder='Ingresa tu email' />
-                <ErrorMessage name='email' component={'small'}/>
-                </InputContainer>
-                <InputContainer>
-                <Field name='password' type="password" placeholder='Ingresa tu contraseña' />
-                <ErrorMessage name='password' component={'small'}/>
+                    <Field as={InputStyled} name='password' type="password" placeholder='Ingresa tu contraseña' IsError={errors.password && touched.password}/>
+                    <ErrorMessage name='password' component={'small'}/>
                 </InputContainer>
                 <Link to='/register'>
                   ¿No tenes cuenta? Registrate acá.
                 </Link>
                 <button type='submit'>Ingresar</button>
-            </Form>
+              </Form>
+               )}
+            
             </Formik>
         </FormContainer>
     </LoginStyled>

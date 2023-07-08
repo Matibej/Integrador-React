@@ -55,7 +55,7 @@ const Checkout = () => {
             {
               cart.length > 0  && <Link to='/felicitaciones'>Confirmar compra</Link>
            }
-            
+           
         </MyPriceContainer>
     </CheckoutWrapper>
   )

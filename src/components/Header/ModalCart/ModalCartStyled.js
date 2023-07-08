@@ -6,10 +6,16 @@ position:absolute;
 top: 100px;
 right: 20px;
 width: 500px;
-display: ${({asd}) => asd && 'flex'};
+display: flex;
 flex-direction: column;
 z-index: 5;
 border-radius: 0 0 5px 5px;
+
+@media (max-width: 550px) {
+  width: 100%;
+  right: 0;
+}
+
 
 `
 
@@ -80,6 +86,14 @@ p{
 
 }
 
+@media (max-width: 500px) {
+  font-size: 10px;
+
+}
+@media (max-width: 400px) {
+  font-size: 8px;
+}
+
 `
 
 export const ProductCardContainer = styled.li`
@@ -108,7 +122,6 @@ align-items: center;
 color: var(--secondary);
 
 
-
 `
 
 export const ProductInfo = styled.div`
@@ -117,11 +130,15 @@ display: flex;
 gap: 10px;
 color: var(--primary);
 
-
 `
 
 
 export const ProductCardIng = styled.div`
 height: 60px;
 width: 120px;
+
+@media (max-width: 400px) {
+  width: 90px;
+  height: 45px;
+}
 `
