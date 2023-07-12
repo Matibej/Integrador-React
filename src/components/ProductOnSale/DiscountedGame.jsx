@@ -1,10 +1,11 @@
 import React from 'react'
-import { Button } from '../UI/Button'
+import { Button, InCartButton } from '../UI/Button'
 import {DiscountedGameContainer,DiscountedGameImg, DiscountedGameInfo, DiscountedGamePriceContainer, DiscountedGameTitle, PriceContainer, Sale, SaleContainer } from './DiscountedStyled'
 import {NewPrice, RandomProduct} from '../data/products'
 import { FormatPrice } from '../utils/FormatPrice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addCart } from '../../redux/cart/cartSlice'
+import { AiOutlineCheckCircle } from 'react-icons/ai'
 
 const GameOnSale = () => {
 
@@ -13,7 +14,9 @@ const GameOnSale = () => {
 
   const {title, img, price, id } = RandomProduct;
 
- 
+  const cart = useSelector(state => state.cart.cart)
+
+  let InCart = cart.find((product) => product.id == id)
 
   return (
     <DiscountedGameContainer>
@@ -37,7 +40,10 @@ const GameOnSale = () => {
             %50
           </Sale>
         </SaleContainer>
-        <Button onClick={() => dispatch(addCart({id, title, img, price}))}>Comprar</Button>
+        {
+          !InCart ? <Button onClick={() => dispatch(addCart({id, title, img, price}))}>Comprar</Button>  : <InCartButton disabled={InCart}><AiOutlineCheckCircle/></InCartButton>
+        }
+        
       </DiscountedGamePriceContainer>
     </DiscountedGameInfo>
   </DiscountedGameContainer>

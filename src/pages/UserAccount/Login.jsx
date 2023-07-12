@@ -10,7 +10,8 @@ import { InputContainer, FormContainer, Form, LoginStyled, InputStyled } from '.
 const Login = () => {
 
   const dispatch = useDispatch()
-  const existingUser = useSelector(state => state.user.user)
+
+  const loged = useSelector(state => state.user.logUser)
 
   const navigate = useNavigate()
 
@@ -23,8 +24,10 @@ const Login = () => {
             validationSchema={loginValidation}
             onSubmit={(values, actions)=> {
               dispatch(logUser({email: values.email, password: values.password})),
-              console.log(existingUser.password == values.password);
               actions.resetForm()
+              if (loged) {
+                navigate('/')
+              }
             }
             }
             >

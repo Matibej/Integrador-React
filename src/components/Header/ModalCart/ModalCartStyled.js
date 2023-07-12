@@ -37,7 +37,14 @@ background: var(--gradient-background );
     width: 70px;
     font-size: 13px;
     height: 30px;
-    background: darkgreen;
+    border: 1px solid lightgreen;
+    background-color: var(--background);
+    color: lightgreen;
+}
+
+a:hover{
+  background-color: lightgreen;
+  color: var(--background);
 }
 
 `

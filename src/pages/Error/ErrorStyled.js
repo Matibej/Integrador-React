@@ -8,7 +8,7 @@ width: 300px;
 border-radius: 10px;
 background: var(--background);
 align-self: center;
-margin: 120px 0;
+margin: 150px 0;
 display: flex;
 flex-direction: column;
 gap: 20px;
